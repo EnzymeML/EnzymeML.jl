@@ -4,11 +4,6 @@
 
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Version](https://img.shields.io/badge/version-0.1.0-orange)](Project.toml)
-
-*A Julia implementation of the EnzymeML data format for biochemical modeling*
-
-[Installation](#installation) • [Quick Start](#quick-start) • [Examples](#examples) • [Documentation](#documentation)
-
 </div>
 
 ---
