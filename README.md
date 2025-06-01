@@ -110,18 +110,6 @@ We welcome contributions! Please open an issue or pull request.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🔗 Related Projects
-
-- [EnzymeML](https://github.com/EnzymeML/EnzymeML) - Python implementation
-- [EnzymeML Suite](https://github.com/EnzymeML/enzymeml-suite) - GUI application
-- [EnzymeML Specification](https://github.com/EnzymeML/enzymeml-specifications) - Data format specification
-
-## 💬 Support
-
-- 📧 **Email**: [jan.range@simtech.uni-stuttgart.de](mailto:jan.range@simtech.uni-stuttgart.de)
-- 🐛 **Issues**: [GitHub Issues](https://github.com/EnzymeML/EnzymeML.jl/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/EnzymeML/EnzymeML.jl/discussions)
-
 ---
 
 <div align="center">
