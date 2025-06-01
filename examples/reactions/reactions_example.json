@@ -1,0 +1,144 @@
+{
+    "name": "enzymatic_reaction",
+    "version": "1.0",
+    "description": "Simple enzymatic reaction example with Michaelis-Menten kinetics",
+    "creators": [
+        {
+            "given_name": "Example",
+            "family_name": "User",
+            "mail": "example@example.com"
+        }
+    ],
+    "vessels": [
+        {
+            "id": "vessel1",
+            "name": "Reaction Vessel",
+            "volume": 1.0,
+            "unit": {
+                "id": "l",
+                "name": "liter"
+            },
+            "constant": true
+        }
+    ],
+    "parameters": [
+        {
+            "id": "kcat",
+            "symbol": "kcat",
+            "name": "Catalytic constant",
+            "value": 10.0,
+            "unit": {
+                "id": "1/s",
+                "name": "per second"
+            }
+        },
+        {
+            "id": "km",
+            "symbol": "km",
+            "name": "Michaelis constant",
+            "value": 100.0,
+            "unit": {
+                "id": "mmol/l",
+                "name": "millimolar"
+            }
+        },
+        {
+            "id": "etotal",
+            "symbol": "etotal",
+            "name": "Total enzyme concentration",
+            "value": 0.01,
+            "unit": {
+                "id": "mmol/l",
+                "name": "millimolar"
+            }
+        }
+    ],
+    "small_molecules": [
+        {
+            "id": "substrate",
+            "name": "Substrate",
+            "constant": false,
+            "vessel_id": "vessel1"
+        },
+        {
+            "id": "product",
+            "name": "Product", 
+            "constant": false,
+            "vessel_id": "vessel1"
+        }
+    ],
+    "proteins": [
+        {
+            "id": "enzyme",
+            "name": "Enzyme",
+            "constant": true,
+            "vessel_id": "vessel1"
+        }
+    ],
+    "reactions": [
+        {
+            "id": "enzymatic_conversion",
+            "name": "Enzymatic conversion of substrate to product",
+            "reversible": false,
+            "kinetic_law": {
+                "species_id": "substrate",
+                "equation": "kcat * etotal * substrate / (km + substrate)",
+                "equation_type": "rate"
+            },
+            "reactants": [
+                {
+                    "species_id": "substrate",
+                    "stoichiometry": 1.0
+                }
+            ],
+            "products": [
+                {
+                    "species_id": "product",
+                    "stoichiometry": 1.0
+                }
+            ],
+            "modifiers": [
+                {
+                    "species_id": "enzyme",
+                    "role": "catalyst"
+                }
+            ]
+        }
+    ],
+    "measurements": [
+        {
+            "id": "m1",
+            "name": "Measurement 1",
+            "species_data": [
+                {
+                    "species_id": "substrate",
+                    "initial": 500.0,
+                    "data_unit": {
+                        "id": "mmol/l",
+                        "name": "millimolar"
+                    },
+                    "time_unit": {
+                        "id": "s",
+                        "name": "seconds"
+                    },
+                    "data_type": "concentration",
+                    "is_simulated": false
+                },
+                {
+                    "species_id": "product",
+                    "initial": 0.0,
+                    "data_unit": {
+                        "id": "mmol/l", 
+                        "name": "millimolar"
+                    },
+                    "time_unit": {
+                        "id": "s",
+                        "name": "seconds"
+                    },
+                    "data_type": "concentration",
+                    "is_simulated": false
+                }
+            ]
+        }
+    ]
+} 

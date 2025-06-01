@@ -1,0 +1,206 @@
+{
+    "name": "enzyme_kinetics_with_data",
+    "version": "1.0",
+    "description": "Enzyme kinetics experiment with time course measurement data",
+    "creators": [
+        {
+            "given_name": "Julia",
+            "family_name": "Researcher",
+            "mail": "julia@example.com"
+        }
+    ],
+    "vessels": [
+        {
+            "id": "vessel1",
+            "name": "Reaction Vessel",
+            "volume": 1.0,
+            "unit": {
+                "id": "ml",
+                "name": "milliliter"
+            },
+            "constant": true
+        }
+    ],
+    "parameters": [
+        {
+            "id": "kcat",
+            "symbol": "kcat",
+            "name": "Catalytic constant",
+            "value": 15.0,
+            "unit": {
+                "id": "1/min",
+                "name": "per minute"
+            }
+        },
+        {
+            "id": "km",
+            "symbol": "km", 
+            "name": "Michaelis constant",
+            "value": 50.0,
+            "unit": {
+                "id": "mmol/l",
+                "name": "millimolar"
+            }
+        },
+        {
+            "id": "etotal",
+            "symbol": "etotal",
+            "name": "Total enzyme concentration",
+            "value": 0.1,
+            "unit": {
+                "id": "mmol/l",
+                "name": "millimolar"
+            }
+        }
+    ],
+    "small_molecules": [
+        {
+            "id": "substrate",
+            "name": "Substrate",
+            "constant": false,
+            "vessel_id": "vessel1"
+        },
+        {
+            "id": "product",
+            "name": "Product",
+            "constant": false,
+            "vessel_id": "vessel1"
+        }
+    ],
+    "proteins": [
+        {
+            "id": "enzyme",
+            "name": "Enzyme",
+            "constant": true,
+            "vessel_id": "vessel1"
+        }
+    ],
+    "equations": [
+        {
+            "species_id": "substrate",
+            "equation": "-kcat * etotal * substrate / (km + substrate)",
+            "equation_type": "ode"
+        },
+        {
+            "species_id": "product", 
+            "equation": "kcat * etotal * substrate / (km + substrate)",
+            "equation_type": "ode"
+        }
+    ],
+    "measurements": [
+        {
+            "id": "condition1",
+            "name": "High substrate concentration",
+            "species_data": [
+                {
+                    "species_id": "substrate",
+                    "initial": 100.0,
+                    "data": [100.0, 92.1, 85.2, 79.1, 73.8, 69.2, 65.1, 61.4, 58.0, 55.0],
+                    "time": [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0],
+                    "data_unit": {
+                        "id": "mmol/l",
+                        "name": "millimolar"
+                    },
+                    "time_unit": {
+                        "id": "min",
+                        "name": "minutes"
+                    },
+                    "data_type": "concentration",
+                    "is_simulated": false
+                },
+                {
+                    "species_id": "product",
+                    "initial": 0.0,
+                    "data": [0.0, 7.9, 14.8, 20.9, 26.2, 30.8, 34.9, 38.6, 42.0, 45.0],
+                    "time": [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0],
+                    "data_unit": {
+                        "id": "mmol/l",
+                        "name": "millimolar"
+                    },
+                    "time_unit": {
+                        "id": "min",
+                        "name": "minutes"
+                    },
+                    "data_type": "concentration",
+                    "is_simulated": false
+                }
+            ]
+        },
+        {
+            "id": "condition2",
+            "name": "Medium substrate concentration",
+            "species_data": [
+                {
+                    "species_id": "substrate",
+                    "initial": 50.0,
+                    "data": [50.0, 45.8, 42.1, 38.8, 35.9, 33.2, 30.8, 28.6, 26.7, 24.9],
+                    "time": [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0],
+                    "data_unit": {
+                        "id": "mmol/l",
+                        "name": "millimolar"
+                    },
+                    "time_unit": {
+                        "id": "min",
+                        "name": "minutes"
+                    },
+                    "data_type": "concentration",
+                    "is_simulated": false
+                },
+                {
+                    "species_id": "product",
+                    "initial": 0.0,
+                    "data": [0.0, 4.2, 7.9, 11.2, 14.1, 16.8, 19.2, 21.4, 23.3, 25.1],
+                    "time": [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0],
+                    "data_unit": {
+                        "id": "mmol/l",
+                        "name": "millimolar"
+                    },
+                    "time_unit": {
+                        "id": "min",
+                        "name": "minutes"
+                    },
+                    "data_type": "concentration",
+                    "is_simulated": false
+                }
+            ]
+        },
+        {
+            "id": "condition3",
+            "name": "Low substrate concentration",
+            "species_data": [
+                {
+                    "species_id": "substrate",
+                    "initial": 20.0,
+                    "data": [20.0, 18.1, 16.4, 14.9, 13.5, 12.3, 11.2, 10.2, 9.3, 8.5],
+                    "time": [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0],
+                    "data_unit": {
+                        "id": "mmol/l",
+                        "name": "millimolar"
+                    },
+                    "time_unit": {
+                        "id": "min",
+                        "name": "minutes"
+                    },
+                    "data_type": "concentration",
+                    "is_simulated": false
+                },
+                {
+                    "species_id": "product",
+                    "initial": 0.0,
+                    "data": [0.0, 1.9, 3.6, 5.1, 6.5, 7.7, 8.8, 9.8, 10.7, 11.5],
+                    "time": [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0],
+                    "data_unit": {
+                        "id": "mmol/l",
+                        "name": "millimolar"
+                    },
+                    "time_unit": {
+                        "id": "min",
+                        "name": "minutes"
+                    },
+                    "data_type": "concentration",
+                    "is_simulated": false
+                }
+            ]
+        }
+    ]
+} 
