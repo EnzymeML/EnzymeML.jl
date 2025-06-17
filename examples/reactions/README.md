@@ -1,6 +1,6 @@
 # Reactions Example
 
-This example demonstrates how to use EnzymeML.jl to create and solve reactions from an EnzymeML document.
+This example demonstrates how to use EnzymeML.jl to create and solve reaction systems from an EnzymeML document.
 
 ## Overview
 
