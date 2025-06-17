@@ -45,8 +45,7 @@ using DifferentialEquations
 using Plots
 
 # Load an EnzymeML document
-json_string = read("./test.json", String)
-enzmldoc = JSON3.read(json_string, EnzymeMLDocument)
+enzmldoc = load_enzmldoc("./ode_example.json")
 
 # Create the ODE system directly from the document
 sys, vars, params = @system(enzmldoc)
