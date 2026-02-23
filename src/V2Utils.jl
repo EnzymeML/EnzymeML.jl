@@ -197,7 +197,7 @@ function extract_parameters(enzmldoc::EnzymeMLDocument, symbols::Dict{String,Sym
     for parameter in enzmldoc.parameters
         if initials
             if parameter.initial !== nothing
-                parameters[symbols[parameter.symbol]] = parameter.initial
+                parameters[symbols[parameter.symbol]] = parameter.initial_value
             end
         else
             if parameter.value !== nothing
